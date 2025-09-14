@@ -1,76 +1,99 @@
-{% set title = 'Account Profile' %}
-{% set filename = 'account-profile.html' %}
+<script>
+// ===== Profile Visit Bar Chart =====
+fetch("/assets/static/data/data.json")
+  .then((response) => response.json())
+  .then((jsonData) => {
+    var optionsProfileVisit = {
+      annotations: { position: "back" },
+      dataLabels: { enabled: false },
+      chart: {
+        type: "bar",
+        height: 300,
+        toolbar: { show: false },
+        sparkline: { enabled: false },
+        background: "transparent",
+        foreColor: "#495057",
+      },
+      fill: { opacity: 0.9, colors: ["#f48fb1"] }, // light pink
+      plotOptions: {
+        bar: { borderRadius: 12, columnWidth: "50%" },
+      },
+      series: [
+        { name: "Sales", data: jsonData.sales } // <-- from JSON
+      ],
+      colors: ["#f48fb1"],
+      xaxis: {
+        categories: jsonData.months, // <-- from JSON
+        axisBorder: { show: false },
+        axisTicks: { show: false },
+      },
+      tooltip: { theme: "dark" },
+    };
 
-{% extends 'src/layouts/master.html' %}
-{% block content %}
-<div class="page-heading">
-    <div class="page-title">
-        <div class="row">
-            <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Account Profile</h3>
-                <p class="text-subtitle text-muted">A page where users can change profile information</p>
-            </div>
-            <div class="col-12 col-md-6 order-md-2 order-first">
-                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Profile</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-    </div>
-    <section class="section">
-        <div class="row">
-            <div class="col-12 col-lg-4">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-center align-items-center flex-column">
-                            <div class="avatar avatar-2xl">
-                                <img src="assets/static/images/faces/2.jpg" alt="Avatar">
-                            </div>
+    var chartProfileVisit = new ApexCharts(
+      document.querySelector("#chart-profile-visit"),
+      optionsProfileVisit
+    );
+    chartProfileVisit.render();
+  });
 
-                            <h3 class="mt-3">John Doe</h3>
-                            <p class="text-small">Junior Software Engineer</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-8">
-                <div class="card">
-                    <div class="card-body">
-                        <form action="#" method="get">
-                            <div class="form-group">
-                                <label for="name" class="form-label">Name</label>
-                                <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" value="John Doe">
-                            </div>
-                            <div class="form-group">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="text" name="email" id="email" class="form-control" placeholder="Your Email" value="john.doe@example.net">
-                            </div>
-                            <div class="form-group">
-                                <label for="phone" class="form-label">Phone</label>
-                                <input type="text" name="phone" id="phone" class="form-control" placeholder="Your Phone" value="083xxxxxxxxx">
-                            </div>
-                            <div class="form-group">
-                                <label for="birthday" class="form-label">Birthday</label>
-                                <input type="date" name="birthday" id="birthday" class="form-control" placeholder="Your Birthday">
-                            </div>
-                            <div class="form-group">
-                                <label for="gender" class="form-label">Gender</label>
-                                <select name="gender" id="gender" class="form-control">
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Save Changes</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-{% endblock %}
+// ===== Visitors Donut Chart =====
+let optionsVisitorsProfile = {
+  series: [70, 30],
+  labels: ["Male", "Female"],
+  colors: ["#435ebe", "#55c6e8"],
+  chart: { type: "donut", width: "100%", height: 350 },
+  legend: { position: "bottom" },
+  plotOptions: { pie: { donut: { size: "30%" } } },
+  dataLabels: { enabled: false },
+  tooltip: { theme: "dark" },
+};
+
+var chartVisitorsProfile = new ApexCharts(
+  document.getElementById("chart-visitors-profile"),
+  optionsVisitorsProfile
+);
+chartVisitorsProfile.render();
+
+// ===== Region Area Charts =====
+var baseOptionsArea = {
+  chart: { height: 80, type: "area", toolbar: { show: false }, sparkline: { enabled: true } },
+  stroke: { width: 2, curve: "smooth" },
+  grid: { show: false },
+  dataLabels: { enabled: false },
+  xaxis: {
+    type: "datetime",
+    categories: [
+      "2018-09-19T00:00:00.000Z","2018-09-19T01:30:00.000Z","2018-09-19T02:30:00.000Z",
+      "2018-09-19T03:30:00.000Z","2018-09-19T04:30:00.000Z","2018-09-19T05:30:00.000Z",
+      "2018-09-19T06:30:00.000Z","2018-09-19T07:30:00.000Z","2018-09-19T08:30:00.000Z",
+      "2018-09-19T09:30:00.000Z","2018-09-19T10:30:00.000Z","2018-09-19T11:30:00.000Z",
+    ],
+    labels: { show: false },
+    axisBorder: { show: false },
+    axisTicks: { show: false },
+  },
+  yaxis: { labels: { show: false } },
+  tooltip: { x: { format: "dd/MM/yy HH:mm" }, theme: "dark" },
+  series: [
+    { name: "Series 1", data: [310,800,600,430,540,340,605,805,430,540,340,605] }
+  ],
+  fill: { type: "gradient", gradient: { shade: "light", type: "vertical", opacityFrom: 0.5, opacityTo: 0 } },
+};
+
+// Custom colors per region
+let optionsEurope = { ...baseOptionsArea, colors: ["#5350e9"] };
+let optionsAmerica = { ...baseOptionsArea, colors: ["#008b75"] };
+let optionsIndia = { ...baseOptionsArea, colors: ["#ffc434"] };
+let optionsIndonesia = { ...baseOptionsArea, colors: ["#dc3545"] };
+
+var chartEurope = new ApexCharts(document.querySelector("#chart-europe"), optionsEurope);
+var chartAmerica = new ApexCharts(document.querySelector("#chart-america"), optionsAmerica);
+var chartIndia = new ApexCharts(document.querySelector("#chart-india"), optionsIndia);
+var chartIndonesia = new ApexCharts(document.querySelector("#chart-indonesia"), optionsIndonesia);
+
+chartEurope.render();
+chartAmerica.render();
+chartIndia.render();
+chartIndonesia.render();
+</script>

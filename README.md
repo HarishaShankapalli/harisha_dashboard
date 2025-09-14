@@ -1,136 +1,118 @@
-<h1 align="center">Mazer Dashboard</h1>
+Harisha Shankapalli Dashboard
 
-![Mazer Screenshot](https://user-images.githubusercontent.com/45036724/167523601-9d20fb17-1989-488f-b619-cb53c0db8898.png)
+The original Mazer template (MIT-licensed) has been forked and customized to:
 
-<p align="center">Mazer is an Admin Dashboard Template that can help you develop faster. Made with Bootstrap 5. No jQuery dependency.</p>
-<div align="center">
+Apply soft pastel gradients and subtle colors for better UI aesthetics.
 
-[![All Contributors](https://img.shields.io/github/contributors/zuramai/mazer)](https://github.com/zuramai/mazer/graphs/contributors)
-![GitHub last commit](https://img.shields.io/github/last-commit/zuramai/mazer.svg)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/zuramai/mazer)
-[![License](https://img.shields.io/github/license/zuramai/mazer.svg)](LICENSE)
+Remove default Mazer branding/logo from the sidebar.
 
-</div>
+Add dynamic dashboard components powered by data.json.
 
-<p align="center">
-	<a href="http://zuramai.github.io/mazer/demo">Demo Page</a>&nbsp;&nbsp;&nbsp;
-	<a href="http://zuramai.github.io/mazer/docs">Documentation Page</a>&nbsp;&nbsp;&nbsp;
-	<a href="https://github.com/zuramai/mazer/blob/main/README_INDONESIAN.md">Indonesian README</a>&nbsp;&nbsp;&nbsp;
-</p>
+Implement charts and tables using JSON data.
 
+Ensure full responsiveness with Bootstrap 5.
 
-## Installation
+Features Implemented
+1. Dashboard Cards (Dynamic)
 
-### Using a ready-made built (recommended)
+Profile Views, Followers, Following, Saved Posts
 
-Download the latest release from the [releases page](https://github.com/zuramai/mazer/releases "releases page").
-Open the index HTML file and explore the source code.
+Cards dynamically populated (sample values or from JSON in future)
 
-### Building yourself
+Includes progress bars with gradient fills for visual feedback
 
-1. Clone the repository 
-```sh
-git clone https://github.com/zuramai/mazer
-```
+2. Profile Visit Chart
 
-2. Install dependencies
-```sh
-yarn install
-# OR
-npm install
-```
+Bar chart showing profile visit trends
 
-3. Run it locally
-```sh
-npm run dev
-```
+Populated dynamically using data.json
 
-4. Open `http://localhost:5173` in your browser
+3. Regional Visits
 
-### Building with Docker
+Line charts for Europe, America, India, Indonesia
 
-- Clone the repository `git clone https://github.com/zuramai/mazer`
-- Make sure you have Docker installed and run:
-    - `docker build -t mazer-frontend .`
-    - `docker run -it -d -p 5173:80 --name mazer mazer-frontend`
-    - Open `http://localhost:5173`
-### Using CDN 
-Simple example using CDN from [jsdelivr.net](https://www.jsdelivr.com/).
+Trends displayed with sparkline area charts
 
-```html
-<!DOCTYPE html>
-<html lang="en">
+Pastel colors for professional appearance
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Mazer Admin Dashboard</title>
+Labels above each chart for clarity
 
-    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/zuramai/mazer@docs/demo/assets/compiled/svg/favicon.svg" type="image/x-icon">
+4. Visitors Profile
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zuramai/mazer@docs/demo/assets/compiled/css/app.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zuramai/mazer@docs/demo/assets/compiled/css/app-dark.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zuramai/mazer@docs/demo/assets/compiled/css/iconly.css">
-</head>
+Donut chart showing Male vs Female distribution
 
-<body>
-    <script src="https://cdn.jsdelivr.net/gh/zuramai/mazer@docs/demo/assets/static/js/initTheme.js"></script>
-    <!-- Start content here -->
+Pastel colors for consistency with theme
 
-    <!-- End content -->
-    <script src="https://cdn.jsdelivr.net/gh/zuramai/mazer@docs/demo/assets/static/js/components/dark.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/zuramai/mazer@docs/demo/assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+5. Latest Comments & Messages
 
-    <script src="https://cdn.jsdelivr.net/gh/zuramai/mazer@docs/demo/assets/compiled/js/app.js"></script>
+Avatar + comment bubbles for users
 
-    <!-- Need: Apexcharts -->
-    <script src="https://cdn.jsdelivr.net/gh/zuramai/mazer@docs/demo/assets/extensions/apexcharts/apexcharts.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/zuramai/mazer@docs/demo/assets/static/js/pages/dashboard.js"></script>
-</body>
+Rounded comment bubbles with soft backgrounds
 
-</html>
-```
+Messages section with avatars, names, and usernames
 
-#### CDN Prefix
+6. UI/UX Customizations
 
-You can use the url with a prefix like this:
-```
-https://cdn.jsdelivr.net/gh/zuramai/mazer@docs/demo
-```
+Gradient welcome heading
 
-A simple example:
-```
-https://cdn.jsdelivr.net/gh/zuramai/mazer@docs/demo/assets/compiled/css/app.css
-```
+Gradient icons in stats cards
 
-## Community Mazer-based open sources
+Smooth hover effects for cards and buttons
 
-- [CodeIgniter 4](https://github.com/irsyadulibad/mazer-codeigniter) by [@irsyadulibad](https://github.com/irsyadulibad)
-- [Laravel Mazer Starter](https://github.com/billalxcode/laravel-mazer-starter) by [@billalxcode](https://github.com/billalxcode)
-- [Nuxt](https://github.com/fzn0x/mazer-nuxt) by [@fzn0x](https://github.com/fzn0x)
-- [React JS Component Library](https://github.com/fachryansyah/react-mazer-ui) by [@fachryansyah](https://github.com/fachryansyah/)
-- [Adonisjs 5](https://github.com/afman42/mazer-adonisjs) by [@afman42](https://github.com/afman42/)
-- [Django](https://github.com/bimbims125/mazer-django) by [@bimbims125](https://github.com/bimbims125/)
-- [Flask](https://github.com/antheiz/mazer-flask) by [@antheiz](https://github.com/antheiz/)
-- [Symfony 6.3 (Mazer 2.1.0)](https://github.com/TheoD02/mazer-symfony-6.3/tree/mazer-2.1.0) by [@theod02](ttps://github.com/TheoD02)
-- [Spring-Thymeleaf](https://github.com/deyhay-enterprise/spring-project-mazer-template) by [@hi-rullah](https://github.com/hi-rullah)
-- [Ruby on Rails](https://github.com/noesya/mazer-rails) by [@noesya](https://github.com/noesya)
-- [Yii2](https://github.com/anovsiradj/yii2-theme-mazer) by [@anovsiradj](https://github.com/anovsiradj)
-- [Next JS](https://github.com/dipras/next-mazer) by [@dipras](https://github.com/dipras)
-- Did you make in another framework or tools? Open up Pull Requests and put yours here! 😃
+Avatar glow effect
 
-## Contributing
+Rounded buttons and badges
 
-Please follow [Contributing Guide](./CONTRIBUTING.md) before contributing.
+Clean typography (Poppins font)
 
-## License
+Fully responsive layout
 
-Mazer is under [MIT License](./LICENSE).
+Technologies Used
 
-## Author
+HTML5 / Nunjucks – templating engine
 
-Mazer is created by <a href="https://saugi.me">Saugi</a>.
+CSS3 / SCSS – custom styles and Bootstrap overrides
 
-## Sponsors
+Bootstrap 5 – responsive layout & components
 
-![zuramai's sponsors](https://raw.githubusercontent.com/zuramai/static/main/sponsors.svg)
+JavaScript (ES6) – dynamic chart rendering and JSON binding
+
+ApexCharts – line, bar, and donut charts
+
+Open index.html in your browser (no backend needed for static version).
+
+Optionally, you can use a local dev server like VS Code Live Server.
+
+Data Binding
+
+All dynamic components use assets/static/data/data.json:
+
+profileVisits → Profile Visit Bar Chart
+
+regionalVisits → Regional Line Charts
+
+visitorsProfile → Donut chart for Male/Female distribution
+
+JavaScript (dashboard.js) reads this JSON and updates HTML elements dynamically.
+
+Notes / Customizations
+
+Removed Mazer logo from sidebar
+
+Updated color theme to soft pastel gradients
+
+Added hover effects for cards and buttons
+
+Added gradient heading for welcome message
+
+Rounded progress bars and avatars
+
+Sparkline charts for regional trends
+
+Labels added for clarity on regional charts
+
+Fully integrated JSON-driven data, no hard-coded values
+
+Responsive design ensured across all components
+
+This README covers the full customization journey, from layout changes and CSS enhancements to chart implementation and JSON-driven dynamic content.

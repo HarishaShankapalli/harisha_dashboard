@@ -8,7 +8,7 @@ $bootstrap-icons-font-src: url('~bootstrap-icons/font/fonts/bootstrap-icons.woff
 
 // Fix icon placement
 body .bi::before, [class^=bi-]::before, [class*=" bi-"]::before {
-    vertical-align: sub;
+  vertical-align: sub;
 }
 
 // Import fonts
@@ -19,3 +19,105 @@ body .bi::before, [class^=bi-]::before, [class*=" bi-"]::before {
 
 // Mazer CSS
 @import "./mazer";
+
+/* =====================
+   Custom Dashboard Styles
+   ===================== */
+
+/* Card Styling */
+.card {
+  border-radius: 12px;  /* smooth corners */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* subtle shadow */
+  padding: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #ffffff; /* light theme bg */
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+/* Card Header */
+.card-header {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e5e5e5;
+  border-radius: 12px 12px 0 0;
+  padding: 0.75rem 1rem;
+}
+
+/* Chart Containers */
+#chart-profile-visit, 
+#chart-visitors-profile,
+#chart-europe, 
+#chart-america, 
+#chart-india, 
+#chart-indonesia {
+  min-height: 280px;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: #ffffff;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
+}
+
+/* === Custom Dashboard Pastel Colors === */
+
+/* Sales Bar Chart - light pink shades */
+#chart-profile-visit .apexcharts-bar-series .apexcharts-bar {
+  fill: #f8a1c4; /* soft rose pink */
+}
+
+/* Visitors Donut Chart - pastel palette */
+#chart-visitors-profile .apexcharts-donut-slice {
+  &:nth-child(1) { fill: #f8a1c4; } /* rose pink */
+  &:nth-child(2) { fill: #fcd5ce; } /* peach pink */
+  &:nth-child(3) { fill: #cdb4db; } /* lavender pink */
+}
+
+/* Region Area Charts - pastel tones */
+#chart-europe .apexcharts-area-series {
+  fill: rgba(255, 183, 197, 0.35);
+  stroke: #ffb7c5;
+}
+
+#chart-america .apexcharts-area-series {
+  fill: rgba(255, 204, 229, 0.35);
+  stroke: #ff99cc;
+}
+
+#chart-india .apexcharts-area-series {
+  fill: rgba(255, 223, 186, 0.35);
+  stroke: #ffb347;
+}
+
+#chart-indonesia .apexcharts-area-series {
+  fill: rgba(221, 160, 221, 0.35);
+  stroke: #da70d6;
+}
+
+/* Global Font */
+body, .card, h3, h4, h5 {
+  font-family: 'Nunito', sans-serif;
+  color: #222;
+}
+
+/* ApexCharts custom styling */
+.apexcharts-canvas {
+  border-radius: 12px;
+}
+
+.apexcharts-tooltip {
+  border-radius: 8px !important;
+  font-size: 0.85rem !important;
+}
+
+/* Responsive tweaks for charts inside cards */
+@media (max-width: 768px) {
+  #chart-profile-visit, 
+  #chart-visitors-profile {
+    min-height: 220px;
+  }
+}
