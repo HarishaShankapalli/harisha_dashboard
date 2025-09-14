@@ -1,118 +1,177 @@
-Harisha Shankapalli Dashboard
+# Harisha Shankapalli Dashboard
 
-The original Mazer template (MIT-licensed) has been forked and customized to:
+A modern, responsive dashboard built with **Vite + Vanilla JS** featuring soft pastel gradients, dynamic data visualization, and clean UI aesthetics.
 
-Apply soft pastel gradients and subtle colors for better UI aesthetics.
+## 🚀 Overview
 
-Remove default Mazer branding/logo from the sidebar.
+This project is a customized fork of the original Mazer template (MIT-licensed), enhanced with:
+- Soft pastel gradients and subtle color schemes
+- Dynamic dashboard components powered by JSON data
+- Interactive charts and data visualizations
+- Fully responsive Bootstrap 5 layout
+- Clean, modern UI/UX design
 
-Add dynamic dashboard components powered by data.json.
+## ✨ Features
 
-Implement charts and tables using JSON data.
+### 📊 Dashboard Cards (Dynamic)
+- **Profile Views**, **Followers**, **Following**, **Saved Posts**
+- Cards dynamically populated from `data.json`
+- Progress bars with gradient fills for visual feedback
+- Real-time data updates
 
-Ensure full responsiveness with Bootstrap 5.
+### 📈 Profile Visit Chart
+- Interactive bar chart showing profile visit trends
+- Populated dynamically using `data.json`
+- Smooth animations and hover effects
 
-Features Implemented
-1. Dashboard Cards (Dynamic)
+### 🌍 Regional Visits
+- Line charts for **Europe**, **America**, **India**, **Indonesia**
+- Sparkline area charts with trend visualization
+- Pastel color scheme for professional appearance
+- Clear labels and data points
 
-Profile Views, Followers, Following, Saved Posts
+### 👥 Visitors Profile
+- Donut chart showing **Male vs Female** distribution
+- Consistent pastel color theming
+- Interactive legends and tooltips
 
-Cards dynamically populated (sample values or from JSON in future)
+### 💬 Latest Comments & Messages
+- Avatar + comment bubbles for user interactions
+- Rounded comment bubbles with soft backgrounds
+- Messages section with avatars, names, and usernames
+- Real-time updates capability
 
-Includes progress bars with gradient fills for visual feedback
+### 🎨 UI/UX Customizations
+- Gradient welcome heading
+- Gradient icons in stats cards
+- Smooth hover effects for cards and buttons
+- Avatar glow effects
+- Rounded buttons and badges
+- Clean typography (Poppins font)
+- Fully responsive layout across all devices
 
-2. Profile Visit Chart
+## 🛠️ Technologies Used
 
-Bar chart showing profile visit trends
+- **Vite** - Fast build tool and dev server
+- **Vanilla JavaScript (ES6+)** - Modern JavaScript without frameworks
+- **HTML5** - Semantic markup
+- **CSS3/SCSS** - Custom styles and Bootstrap overrides
+- **Bootstrap 5** - Responsive layout & components
+- **ApexCharts** - Interactive charts (line, bar, donut)
+- **JSON** - Dynamic data management
 
-Populated dynamically using data.json
+## 🚀 Getting Started
 
-3. Regional Visits
+### Prerequisites
 
-Line charts for Europe, America, India, Indonesia
+- **Node.js** (v16 or higher)
+- **npm** or **yarn**
 
-Trends displayed with sparkline area charts
+### Installation
 
-Pastel colors for professional appearance
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/harisha-dashboard.git
+   cd harisha-dashboard
+   ```
 
-Labels above each chart for clarity
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-4. Visitors Profile
+3. **Start development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-Donut chart showing Male vs Female distribution
+4. **Open in browser**
+   ```
+   http://localhost:5173
+   ```
 
-Pastel colors for consistency with theme
+### Build for Production
 
-5. Latest Comments & Messages
+```bash
+npm run build
+# or
+yarn build
+```
 
-Avatar + comment bubbles for users
+The built files will be in the `dist/` directory.
 
-Rounded comment bubbles with soft backgrounds
+## 📊 Data Configuration
 
-Messages section with avatars, names, and usernames
+All dynamic components use `src/assets/static/data/data.json`:
 
-6. UI/UX Customizations
+```json
+{
+  "profileVisits": [
+    { "month": "Jan", "visits": 1200 },
+    { "month": "Feb", "visits": 1500 }
+  ],
+  "regionalVisits": {
+    "europe": [100, 120, 140, 110],
+    "america": [80, 90, 100, 95],
+    "india": [200, 250, 300, 280],
+    "indonesia": [150, 160, 180, 170]
+  },
+  "visitorsProfile": {
+    "male": 65,
+    "female": 35
+  }
+}
+```
 
-Gradient welcome heading
+### Data Binding
 
-Gradient icons in stats cards
+- `profileVisits` → Profile Visit Bar Chart
+- `regionalVisits` → Regional Line Charts  
+- `visitorsProfile` → Donut chart for Male/Female distribution
 
-Smooth hover effects for cards and buttons
+JavaScript (`dashboard.js`) reads this JSON and updates HTML elements dynamically.
 
-Avatar glow effect
+## 🎨 Customizations Made
 
-Rounded buttons and badges
+### Design Changes
+- ✅ Removed Mazer logo from sidebar
+- ✅ Updated color theme to soft pastel gradients
+- ✅ Added hover effects for cards and buttons
+- ✅ Added gradient heading for welcome message
+- ✅ Rounded progress bars and avatars
+- ✅ Sparkline charts for regional trends
+- ✅ Labels added for clarity on regional charts
 
-Clean typography (Poppins font)
+### Technical Enhancements
+- ✅ Fully integrated JSON-driven data (no hard-coded values)
+- ✅ Responsive design across all components
+- ✅ Modern ES6+ JavaScript
+- ✅ Vite build optimization
+- ✅ SCSS modular styling
 
-Fully responsive layout
+## 🤝 Contributing
 
-Technologies Used
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-HTML5 / Nunjucks – templating engine
+## 📄 License
 
-CSS3 / SCSS – custom styles and Bootstrap overrides
+This project is based on the **Mazer template** (MIT License). See [LICENSE](LICENSE) for more information.
 
-Bootstrap 5 – responsive layout & components
+## 🙏 Acknowledgments
 
-JavaScript (ES6) – dynamic chart rendering and JSON binding
+- [Mazer Template](https://github.com/zuramai/mazer) - Original MIT-licensed template
+- [ApexCharts](https://apexcharts.com/) - Beautiful charts library
+- [Bootstrap 5](https://getbootstrap.com/) - Responsive framework
+- [Vite](https://vitejs.dev/) - Next generation frontend tooling
 
-ApexCharts – line, bar, and donut charts
+---
 
-Open index.html in your browser (no backend needed for static version).
-
-Optionally, you can use a local dev server like VS Code Live Server.
-
-Data Binding
-
-All dynamic components use assets/static/data/data.json:
-
-profileVisits → Profile Visit Bar Chart
-
-regionalVisits → Regional Line Charts
-
-visitorsProfile → Donut chart for Male/Female distribution
-
-JavaScript (dashboard.js) reads this JSON and updates HTML elements dynamically.
-
-Notes / Customizations
-
-Removed Mazer logo from sidebar
-
-Updated color theme to soft pastel gradients
-
-Added hover effects for cards and buttons
-
-Added gradient heading for welcome message
-
-Rounded progress bars and avatars
-
-Sparkline charts for regional trends
-
-Labels added for clarity on regional charts
-
-Fully integrated JSON-driven data, no hard-coded values
-
-Responsive design ensured across all components
-
-This README covers the full customization journey, from layout changes and CSS enhancements to chart implementation and JSON-driven dynamic content.
+**Built with ❤️ by [Harisha Shankapalli](https://github.com/your-username)**
