@@ -1,0 +1,43 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # change to your default branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Check out your repo with full history (needed for worktree deploy)
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # 2. Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # 3. Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Build project (your package.json scripts)
+      - name: Build
+        run: npm run build
+
+      # 5. Clean up any temp deployment folders before deploy
+      - name: Clean up temp deployment folder
+        run: |
+          rm -rf github-pages-deploy-action-temp-deployment-folder || true
+          git worktree prune || true
+
+      # 6. Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages             # The branch you want to deploy to
+          folder: dist                 # The folder your build outputs to
